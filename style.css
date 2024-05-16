@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: rgb(184, 169, 149);
+}
+
+.root {
+    display: grid;
+    grid-template-areas: "header header header" "nav nav nav" "aside section aside-right" "aside section-2 aside-right" "footer footer  footer";
+    grid-template-columns: 0.2fr 0.6fr 0.2fr;
+    gap: 10px;
+
+}
+
+header,nav,aside,section,footer,.aside-right,.section-2 {
+    border: 3px solid black;
+    padding: 10px;
+    background-color: blanchedalmond;
+    text-align: center;
+}
+
+.section-2 {
+    grid-area: section-2;
+    max-height: 320px;
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    top: 10px;
+    
+}
+
+aside {
+    grid-area: aside;
+}
+
+.aside-right {
+    grid-area: aside-right
+}
+
+section {
+   grid-area: section;
+   max-height: 100vh;
+   overflow: scroll;
+}
+
+footer {
+    grid-area: footer;
+    
+}
+
+aside > .aside-container,.aside-right > .aside-right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.footer-information {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    color: black;
+    
+}
+
+.footer-information  a {
+    color: black;
+    font-weight: 600;
+}
+
+.cars {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.cont {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+nav ul a {
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+nav ul li:hover {
+    border: 1px solid black;
+    background-color: grey;
+}
+
+.input-box > form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#desc-input-area {
+    min-height: 70px;
+    min-width: 1.3vh;
+}
+
+@media only screen and (max-width: 1280px) {
+    section {
+        overflow: visible;
+        max-height: 1000vh;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+
+    .root {
+        grid-template-areas: "header header"
+                             "nav nav" 
+                             "section section"
+                             "section-2 section-2"
+                             "aside aside-right" 
+                             "footer footer" ;
+        grid-template-columns: 0.5fr 0.5fr;
+    }
+    nav ul a {
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .root {
+        grid-template-areas: "header"
+                               "nav"
+                               "section"
+                               "section-2"
+                               "aside"
+                               "aside-right"
+                               "footer";
+        grid-template-columns: 1fr;
+    }
+    section {
+        max-height: 100vh;
+        overflow: scroll;
+    }
+}
